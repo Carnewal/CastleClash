@@ -1,0 +1,6 @@
+/bin/
+/notes/
+/.settings/
+/*.project
+/*.classpath
+*.bat

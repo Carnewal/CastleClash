@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "drops": [
+        	{
+        	    "item": {
+        			"id": 526,
+        			"amount": 1
+        		},
+        		"chance": ALWAYS
+        	},
+        	{
+        		"item": {
+        			"id": 995,
+        			"amount": 25
+        		},
+        		"chance": COMMON
+        	},
+        	{
+        		"item": {
+        		    "id": 1205,
+        			"amount": 1
+        		},
+        		"chance": COMMON
+        	}
+        ]
+    },
+	
+    {
+        "id": 941,
+        "drops": [
+			{"item": {"id": 536, "amount": 1}, "chance": ALWAYS},
+			{"item": {"id": 995, "amount": 1337}, "chance": COMMON},
+			{"item": {"id": 3140, "amount": 1337}, "chance": VERY_UNCOMMON},
+        	{"item": {"id": 4587, "amount": 1}, "chance": UNCOMMON}
+        ]
+    }	
+	
+]
