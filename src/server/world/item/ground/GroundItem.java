@@ -72,7 +72,26 @@ public class GroundItem {
         this.state = ItemState.SEEN_BY_OWNER;
         this.processor = new GroundItemWorker(this);
     }
-
+    
+    /**
+     * Create a new {@link GroundItem}. It can immediately be seen by everyone. 
+     * (Example: in Castle Wars when a player dies, the Banner is dropped)
+     * 
+     * 
+     * @param item
+     *        the actual item.
+     * @param position
+     *        the position of the item.
+     * @param player
+     *        the player who owns this item.
+     */    
+    public GroundItem(Item item, Position position) {
+        this.item = item;
+        this.position = position.clone();
+        this.player = null;
+        this.state = ItemState.SEEN_BY_EVERYONE;
+        this.processor = new GroundItemWorker(this);
+    }
     /**
      * An asynchronous event fired upon registration of this item.
      */

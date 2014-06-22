@@ -9,6 +9,7 @@ import server.core.net.packet.PacketBuffer.ValueType;
 import server.core.net.packet.PacketBuffer.WriteBuffer;
 import server.world.World;
 import server.world.entity.player.Player;
+import server.world.entity.player.house.Room;
 import server.world.item.Item;
 import server.world.item.ground.GroundItem;
 import server.world.map.Palette;
@@ -326,7 +327,33 @@ public final class PacketEncoder {
         player.getSession().encode(out);
         return this;
     }
+    
+    
+    public PacketEncoder sendCustomMapRegion(Room[][][] rooms) {
+        this.sendMapRegion();
+        PacketBuffer.WriteBuffer out = PacketBuffer.newWriteBuffer(100);
+        out.writeVariableShortPacketHeader(241);
+        out.writeShort(player.getPosition().getRegionY() + 6, ValueType.A);
+        out.setAccessType(AccessType.BIT_ACCESS);
 
+        for (int z = 0; z < 4; z++) {
+            for (int x = 0; x < 13; x++) {
+                for (int y = 0; y < 13; y++) {
+                    Room r = rooms[x][y][z];
+                    out.writeBits(1, r != null ? 1 : 0);
+                    if (r != null) {
+                        System.out.println("Writing bit .. " + r.name());
+                        out.writeBits(26, r.getX() / 8 << 14 | r.getY() / 8 << 3 | r.getZ() % 4 << 24 | r.getRot() % 4 << 1);
+                    }
+                }
+            }
+        }
+        out.setAccessType(AccessType.BYTE_ACCESS);
+        out.writeShort(player.getPosition().getRegionX() + 6);
+        out.finishVariableShortPacketHeader();
+        player.getSession().encode(out);
+        return this;
+    }
     /**
      * Sends the head model of a player to an interface.
      * 

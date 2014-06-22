@@ -215,6 +215,7 @@ public class EquipmentContainer {
         /** Check if we have enough space to remove it. */
         if (!player.getInventory().getContainer().hasRoomFor(item)) {
             player.getPacketBuilder().sendMessage("You do not have enough space in your inventory!");
+            
             return;
         }
 

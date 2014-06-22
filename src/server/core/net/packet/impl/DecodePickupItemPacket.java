@@ -38,7 +38,8 @@ public class DecodePickupItemPacket extends PacketDecoder {
                     }
 
                     if (!player.getInventory().getContainer().hasRoomFor(new Item(itemId, worldItem.getItem().getAmount()))) {
-                        player.getPacketBuilder().sendMessage("You don't have enough free inventory space to pickup this item.");
+                        player.getPacketBuilder().sendMessage("You don't have enough free inventory space to pickup this item: ");
+                        player.getPacketBuilder().sendMessage("Id: " + itemId + ", amount: " + worldItem.getItem().getAmount());
                         return;
                     }
 

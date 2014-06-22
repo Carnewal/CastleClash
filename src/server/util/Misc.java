@@ -277,6 +277,7 @@ public final class Misc {
                     Minigame m = (Minigame) file.newInstance();
                    
                     MinigameFactory.getMinigames().put(m.name(), m);
+                    System.out.println("Added minigame: " + m.name() + " from " + file.getCanonicalName());
                     parsed++;
                     
 
@@ -862,6 +863,9 @@ public final class Misc {
         public long elapsed() {
             return System.currentTimeMillis() - time;
         }
+        
+        
+        
     }
 
     /**

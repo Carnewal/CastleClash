@@ -27,4 +27,4 @@
 #packet server.core.net.packet.impl.DecodeCharacterSelectionPacket
 #packet server.core.net.packet.impl.DecodeAttackPlayerMagicPacket
 
-#minigame server.world.entity.player.minigame.CastleClash
+#minigame server.world.entity.player.minigame.castlewars.CastleWars

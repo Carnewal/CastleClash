@@ -80,7 +80,7 @@ public class CombatHookTask extends Worker {
                  * If the attacking entity is a player then check if the target
                  * has ran out of the wilderness.
                  */
-                if (!Location.inWilderness(target) && !MinigameFactory.getMinigames().get("Castle Clash").inMinigame(target)) {
+                if (!Location.inWilderness(target) && !MinigameFactory.getMinigames().get("CastleWars").inMinigame(target)) {
                     player.getPacketBuilder().sendMessage("Your target is not in the wilderness!");
                     builder.reset();
                     builder.getEntity().faceEntity(65535);

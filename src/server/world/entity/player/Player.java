@@ -170,6 +170,13 @@ public class Player extends Entity {
 
     /** A collection of anti-massing timers. */
     private Stopwatch eatingTimer = new Stopwatch().reset();
+    
+    /** A collection of anti-massing timers. */
+    private Stopwatch thievingTimer = new Stopwatch().reset();
+
+    public Stopwatch getThievingTimer() {
+        return thievingTimer;
+    }
 
     /** The username. */
     private String username;
